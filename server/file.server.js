@@ -10,8 +10,8 @@ class FileServer {
             const staticDir = path.join(currentDir, "..", "static")
             const filePath = path.join(staticDir, fileName)
 
-            if(!fs.existsSync(staticDir)){
-                fs.mkdir(staticDir, {recursive: true})
+            if (!fs.existsSync(staticDir)) {
+                fs.mkdirSync(staticDir, { recursive: true })
             }
 
             file.mv(filePath)

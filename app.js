@@ -15,6 +15,7 @@ const fileUpload = require("express-fileupload")
 const app = express()
 
 app.use(express.json())
+app.use(express.static('static'))
 app.use(fileUpload({}))
 
 //Routes
@@ -22,8 +23,6 @@ app.use(fileUpload({}))
 app.use('/api/post', postRoute)
 
 //fileUpload
-
-    
 const PORT = process.env.PORT || 5173;
 
 

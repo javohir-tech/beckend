@@ -12,6 +12,7 @@ class PostConrtoller {
 
     async create(req, res) {
         try {
+            console.log(req.files.picture)
             const post = await postServer.create(req.body, req.files.picture)
             res.status(201).json(post)
         } catch (error) {
