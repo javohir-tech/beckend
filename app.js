@@ -11,9 +11,11 @@ const postRoute = require("./routes/post.route")
 
 //fileUpload
 const fileUpload = require("express-fileupload")
+const requestTime = require('./middlewares/request-time')
 
 const app = express()
 
+app.use(requestTime)
 app.use(express.json())
 app.use(express.static('static'))
 app.use(fileUpload({}))

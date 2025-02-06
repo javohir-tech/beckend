@@ -1,8 +1,10 @@
+const requestTime = require("../middlewares/request-time")
 const postServer = require("../server/post.server")
 
 class PostConrtoller {
     async getAll(req, res) {
         try {
+            console.log(req.requestTime)
             const allPosts = await postServer.getAll()
             res.status(200).json(allPosts)
         } catch (error) {
@@ -12,7 +14,6 @@ class PostConrtoller {
 
     async create(req, res) {
         try {
-            console.log(req.files.picture)
             const post = await postServer.create(req.body, req.files.picture)
             res.status(201).json(post)
         } catch (error) {
