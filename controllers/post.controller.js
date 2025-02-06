@@ -12,7 +12,7 @@ class PostConrtoller {
 
     async create(req, res) {
         try {
-            const post = await postServer.create(req.body)
+            const post = await postServer.create(req.body, req.files.picture)
             res.status(201).json(post)
         } catch (error) {
             res.status(500).json(error)
@@ -37,6 +37,7 @@ class PostConrtoller {
             res.status(500).json(error)
         }
     }
+    
     async getOne(req, res){
         try {
             const post = await postServer.getOne(req.params.id)

@@ -9,43 +9,21 @@ require("dotenv").config()
 //Routes
 const postRoute = require("./routes/post.route")
 
+//fileUpload
+const fileUpload = require("express-fileupload")
+
 const app = express()
 
 app.use(express.json())
+app.use(fileUpload({}))
 
 //Routes
+
 app.use('/api/post', postRoute)
 
+//fileUpload
 
-// app.get("/", )
-
-// app.post("/", async (req, res)=>{
-//     try {
-//         const {title, body} = req.body;
-//         const newPost = await postModel.create({title, body})
-//         res.status(201).json(newPost)   
-//     } catch (error) {
-//         res.status(500).json(error)
-//     }
-// })
-
-// app.delete("/:id", (req, res)=>{
-//     const {id} = req.params
-//     res.send(`salom  ${id}`)
-// })
-
-// app.put("/:id", (req, res)=>{
-//    const  {id} = req.params;
-//    const  body = req.body
-
-//    res.send({id,  body})
-// })
-
-
-// app.get("/post", (req, res)=>{
-//     res.status(200).send("salom post")
-// })     
-
+    
 const PORT = process.env.PORT || 5173;
 
 
